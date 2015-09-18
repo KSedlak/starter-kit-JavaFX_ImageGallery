@@ -1,46 +1,57 @@
 package com.capgemini.starterkit.imagegallery.dataProvider;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 
-public class imageProvider {
+public  class imageProvider {
 
-	List<Image> listImagesInDirectory;
-	String directory;
-	public String getDirectory() {
-		return directory;
-	}
-	public imageProvider(String directory) {
-		super();
-		this.directory = directory;
-	}
+List<Image>listImages=new ArrayList<>();
+
+int pivot=0;;
 
 
 
 
-public void Raz(String path) throws IOException{
-	listRecursive(path);
-}
-
-private static void listRecursive(String path) throws IOException {
+public  void listRecursive(String path) throws Exception {
 	Files.list(new File(path).toPath())
-    .filter(p -> !p.getFileName()
+    .filter(p -> p.getFileName()
                    .toString().endsWith(".jpg"))
-    .forEach(System.out::println);
+    .forEach(imagePath -> listImages.add(convertFileToImage((imagePath.toFile())))
+
+    );
 }
 
 
 
 
+public Image getCurrentImage(){
+
+	return listImages.get(pivot);
+}
 
 
 
+public Image convertFileToImage(File f){
+	 Image image = null;
+	 try {
+         BufferedImage bufferedImage = ImageIO.read(f);
+         image = SwingFXUtils.toFXImage(bufferedImage, null);
 
+     } catch (IOException ex) {
 
+     }
+
+	return image;
+}
 
 
 
