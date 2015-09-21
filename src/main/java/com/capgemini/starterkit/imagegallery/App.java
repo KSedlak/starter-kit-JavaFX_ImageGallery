@@ -1,15 +1,12 @@
 package com.capgemini.starterkit.imagegallery;
 
 
-import com.capgemini.starterkit.imagegallery.dataProvider.imageProvider;
+
 import com.guigarage.flatterfx.FlatterFX;
-
 import javafx.application.Application;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -21,8 +18,10 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
 
     	Parent root = FXMLLoader.load(getClass().getResource("fxml/primary.fxml"));
-        primaryStage.setScene(new Scene(root));
+    	Scene primaryScene=new Scene(root);
+        primaryStage.setScene(primaryScene);
         primaryStage.show();
+        primaryScene.getStylesheets().add(getClass().getResource("css/standard.css").toExternalForm());
     	FlatterFX.style();
     }
 }
