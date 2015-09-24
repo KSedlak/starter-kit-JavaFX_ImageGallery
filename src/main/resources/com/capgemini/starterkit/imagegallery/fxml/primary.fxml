@@ -7,10 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.capgemini.starterkit.imagegallery.controller.Controller">
    <children>
-      <Button fx:id="chooseDirectory" layoutY="-5.0" mnemonicParsing="false" onAction="#directoryChooserAction" prefHeight="31.0" prefWidth="1024.0" text="Choose Directory" styleClass="chooseButton">
+      <Button fx:id="chooseDirectory" layoutY="-5.0" mnemonicParsing="false" onAction="#directoryChooserAction" opacity="0.52" prefHeight="31.0" prefWidth="1024.0" styleClass="chooseButton" text="Choose Directory">
 
 </Button>
       <ImageView fx:id="imageView" blendMode="SRC_ATOP" fitHeight="768.0" fitWidth="1024.0" layoutY="68.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
@@ -20,9 +19,9 @@
       <ButtonBar layoutX="380.0" layoutY="655.0" opacity="0.43" prefHeight="40.0" prefWidth="200.0">
         <buttons>
             <Button ellipsisString="" mnemonicParsing="false" onAction="#moveLeft" styleClass="prev" />
-          <Button mnemonicParsing="false"  onAction="#rotateLeft" styleClass="rotateLeft" />
-             <Button mnemonicParsing="false"  onAction="#rotateRight" styleClass="rotateRight" />
-            <Button ellipsisString="" mnemonicParsing="false" onAction="#moveRight" styleClass="next"/>
+          <Button mnemonicParsing="false" onAction="#rotateLeft" styleClass="rotateLeft" />
+             <Button mnemonicParsing="false" onAction="#rotateRight" styleClass="rotateRight" />
+            <Button ellipsisString="" mnemonicParsing="false" onAction="#moveRight" styleClass="next" />
         </buttons>
       </ButtonBar>
    </children>

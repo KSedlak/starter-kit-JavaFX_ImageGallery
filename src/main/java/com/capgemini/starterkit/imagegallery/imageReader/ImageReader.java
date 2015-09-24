@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 
-public class imageReader {
+public class ImageReader {
 
 
 

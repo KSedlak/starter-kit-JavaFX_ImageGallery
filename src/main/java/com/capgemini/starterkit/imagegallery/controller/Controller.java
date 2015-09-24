@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.capgemini.starterkit.imagegallery.dataProvider.imageProvider;
+import com.capgemini.starterkit.imagegallery.dataProvider.ImageProvider;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,7 +52,7 @@ public void directoryChooserAction(ActionEvent event) throws Exception {
 	if(selectedDirectory == null){
      //TODO
     }else{
-    	data=imageProvider.getImages(selectedDirectory.getAbsolutePath());
+    	data=ImageProvider.getImages(selectedDirectory.getAbsolutePath());
     	pivot=0;
     	displayImage();
     }
@@ -85,6 +85,7 @@ public void decreasePivot(){
 	public void displayImage(){
 	 	angle=0;
 		imageView.setImage(getCurrentImage());
+		imageView.setRotate(angle);
 	}
 
 
