@@ -2,14 +2,15 @@ package com.capgemini.starterkit.imagegallery;
 
 
 
-import java.io.IOException;
 
-import com.guigarage.flatterfx.FlatterFX;
+
+import com.capgemini.starterkit.imagegallery.controller.Controller;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 
 
 public class App extends Application {
@@ -21,18 +22,19 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
 
 
-    	Scene primaryScene=getSceneFromFXML("primary");
+
+    	FXMLLoader loader = new FXMLLoader(App.class.getResource("fxml/" + "primary" + ".fxml"));
+		loader.setController(new Controller(primaryStage));// to share
+																	// model
+																	// between
+																	// controlers
+		Scene primaryScene= new Scene(loader.load());
         primaryStage.setScene(primaryScene);
         primaryStage.show();
         primaryScene.getStylesheets().add(getClass().getResource("css/standard.css").toExternalForm());
-    	FlatterFX.style();
+    //	FlatterFX.style();
     }
 
-
-	   private  static Scene getSceneFromFXML(String fxmlName) throws IOException{
-		   	return  new Scene(FXMLLoader.load(App.class.getResource("fxml/"+fxmlName+".fxml")));
-
-		    }
 
 
 

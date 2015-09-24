@@ -6,8 +6,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.activation.MailcapCommandMap;
+
 import com.capgemini.starterkit.imagegallery.dataProvider.ImageProvider;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.Property;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +21,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 
 public class Controller{
 
@@ -41,6 +47,32 @@ Button right;
 List<Image> data;
 int pivot;
 int angle;
+
+@FXML Button rotateRight;
+
+@FXML Button rotateLeft;
+
+Stage actualStage;
+
+@FXML
+GridPane child;
+
+@FXML
+GridPane main;
+
+public Controller(Stage s){
+	actualStage=s;
+}
+
+@FXML
+private void initialize() {
+
+	  imageView.fitWidthProperty().bind(actualStage.widthProperty());
+	  child.prefWidthProperty().bind(main.widthProperty());
+	  child.prefHeightProperty().bind(main.heightProperty());
+}
+
+
 
 @FXML
 public void directoryChooserAction(ActionEvent event) throws Exception {
